@@ -10,11 +10,12 @@
     <title>Bienvenido a mi primera página</title>
 </head>
 <body>
-    <h1>Hello World {{ nom }} !</h1>
+    <h1>Hello World {{ nom }} id {{ id }}!</h1>
     <p>Le Hello World est un grand classique en programmation.
         Il signifie énormément, car cela veu dire que vous avez
         réussi à executer le programme pour accomplir una tâche simple:
         afficher ce hello world!
     </p>
+    <a href="{{ path('oc_platform_view', {'id': id-1}) }}">link al anuncio {{ id-1 }}</a>
 </body>
 </html>
