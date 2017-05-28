@@ -1,21 +1,32 @@
-{# src/OC/PlatformBundle/Resources/views/Advert/index.html.twig #}
+{# src/OC/PlatformBundle/Resources/views/Advert/view.html.twig #}
 
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Plataforma-Anuncios</title>
-</head>
-<body>
-    <h1>Este es el anuncio {{ id }}</h1>
-    <div>
-        {% for message in app.session.flashBag.get('info') %}
-        <p>Message flash: {{ message }}</p>
-        {% endfor %}
+{% extends "OCPlatformBundle::layout.html.twig" %}
+
+{% block title %}
+    Lectura de Anuncio - {{ parent() }}
+{% endblock %}
+
+{% block ocplatform_body %}
+    <h2>{{ advert.title }}</h2>
+    <i>Por {{ advert.author }}, el {{ advert.date|date('d/m/Y') }}</i>
+
+    <div class="well">
+        {{ advert.content }}
     </div>
 
-</body>
-</html>
+    <p>
+        <a class="btn btn-default" href="{{ path('oc_platform_home') }}">
+            <i class="glyphicon glyphicon-chevron-left"></i>
+            Volver a la lista
+        </a>
+        <a class="btn btn-default" href="{{ path('oc_platform_edit', {'id':advert.id}) }}">
+            <i class="glyphicon glyphicon-edit"></i>
+            Modificar el anuncio
+        </a>
+        <a class="btn btn-danger" href="{{ path('oc_platform_delete', {'id':advert.id}) }}">
+            <i class="glyphicon glyphicon-trash"></i>
+            Suprimir el anuncio
+        </a>
+    </p>
+
+{% endblock %}

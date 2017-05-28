@@ -1,0 +1,15 @@
+{# src/OC/PlatformBundle/Resources/views/layout.html.twig #}
+
+{% extends "::layout.html.twig" %}
+
+{% block title %}Anuncios - {{ parent() }}{% endblock %}
+
+{% block body %}
+    <h1>Anuncios</h1>
+
+    <hr>
+
+    {% block ocplatform_body %}
+    {% endblock %}
+
+{% endblock %}
