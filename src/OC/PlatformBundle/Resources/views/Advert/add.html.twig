@@ -1,0 +1,25 @@
+{# src/OC/PlatformBundle/Resources/views/Advert/add.html.twig #}
+
+{% extends "OCPlatformBundle::layout.html.twig" %}
+
+{% block title %}
+    Añadir un Anuncio - {{ parent() }}
+{% endblock %}
+
+{% block ocplatform_body %}
+    <h2>Añadir un anuncio</h2>
+
+    {{ include("OCPlatformBundle:Advert:form.html.twig") }}
+
+    <p>
+        Estás añadiendo un anuncio. Gracias por no cambiar el esquema general.
+    </p>
+
+    <p>
+        <a class="btn btn-default" href="{{ path('oc_platform_view', {'id':5}) }}">
+            <i class="glyphicon glyphicon-chevron-left" ></i>
+            Volver al anuncio
+        </a>
+    </p>
+
+{% endblock %}
